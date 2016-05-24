@@ -1,0 +1,32 @@
+<%= form_for(@cms_page) do |f| %>
+  <% if @cms_page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cms_page.errors.count, "error") %> prohibited this cms_page from being saved:</h2>
+
+      <ul>
+      <% @cms_page.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-lg-10">
+      <div class="form-group well">
+        <%= f.label :title %><br>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+      <div class="form-goup well">
+        <%= f.label :content %><br>
+        <%= f.text_area :content, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class="btn-group-vertical btn-block" role="group" aria="...">
+        <%= f.submit 'Save', class: "btn btn-primary btn-block" %>
+        <%= link_to 'Back', cms_pages_path, class: "btn btn-danger btn-block" %>
+      </div>
+    </div>
+  </div>
+<% end %>
