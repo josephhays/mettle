@@ -2,10 +2,8 @@
 
 
   <% for setting in @system_settings %>
-    <%= fields_for "settings[]", setting do |f| %>
-      <h2><%= setting.slug %></h2>
-      <p>
-      <%= f.label :value %><br />
+    <%= fields_for "system_settings[]", setting do |f| %>
+      <p><%= setting.human_readable %>
       <%= f.text_field :value %>
       </p>
     <% end %>

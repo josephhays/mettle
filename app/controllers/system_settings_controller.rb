@@ -10,7 +10,7 @@ class SystemSettingsController < ApplicationController
   # PATCH/PUT /system_settings/1.json
   def update
     respond_to do |format|
-      if @system_settings.update(params[:system_settings].keys, params[:system_settigns].values).reject { |p| p.errors.empty? }
+      if @system_settings.update(params[:system_settings].keys, params[:system_settings].values).reject { |p| p.errors.empty? }
         format.html { redirect_to settings_path, notice: 'Settings saved!' }
         format.json { render :show, status: :ok, location: settings_path }
       else
@@ -26,9 +26,4 @@ class SystemSettingsController < ApplicationController
       @system_settings = SystemSetting.all
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def system_setting_params
-      # params[:system_settings].keys, params[:system_settigns].values
-      # params.require(:system_settings).permit(:slug, :key, :value, :human_readable)
-    end
 end
