@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  get '/settings', to: 'system_settings#edit', as: 'settings'
+  patch '/settings', to: 'system_settings#update', as: 'update_settings'
+
   namespace :cms do
     resources :pages
   end

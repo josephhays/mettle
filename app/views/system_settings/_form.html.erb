@@ -1,0 +1,17 @@
+<%= form_tag update_settings_path, method: "patch" do |f| %>
+
+
+  <% for setting in @system_settings %>
+    <%= fields_for "settings[]", setting do |f| %>
+      <h2><%= setting.slug %></h2>
+      <p>
+      <%= f.label :value %><br />
+      <%= f.text_field :value %>
+      </p>
+    <% end %>
+  <% end %>
+  <p><%= submit_tag "Submit" %></p>
+
+<% console %>
+
+<% end %>
