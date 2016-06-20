@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
 
-  get '/settings', to: 'system_settings#edit', as: 'settings'
-  patch '/settings', to: 'system_settings#update', as: 'update_settings'
+  root to: "pages#index"
 
-  namespace :cms do
-    resources :pages
+  resources :pages, path: "", only: [:show]
+
+  scope '/admin' do
+    get '/settings', to: 'system_settings#edit', as: 'settings'
+    patch '/settings', to: 'system_settings#update', as: 'update_settings'
+
+    namespace :cms do
+      resources :pages, except: [:show]
+    end
+
   end
-  devise_for :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

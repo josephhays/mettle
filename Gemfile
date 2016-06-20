@@ -35,11 +35,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Bootstrap for quick styling
 gem 'bootstrap-sass'
 
-# Devise for authentication
-gem 'devise'
 
 # TinyMCE for wysiwyg editing
 gem 'tinymce-rails'
+
+# Paperclip for file uploading
+gem 'bootstrap-material-design'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

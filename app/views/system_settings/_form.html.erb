@@ -1,15 +1,20 @@
-<%= form_tag update_settings_path, method: "patch" do |f| %>
+<div class="well well-lg">
+  <%= form_tag update_settings_path, method: "patch", class: "form-group" do |f| %>
 
+      <% for setting in @system_settings %>
+        <%= fields_for "system_settings[]", setting do |f| %>
+          <%= f.label "#{setting.human_readable}" %>
+          <%= f.text_field :value, class: "form-control" %>
+          </p>
+        <% end %>
+      <% end %>
 
-  <% for setting in @system_settings %>
-    <%= fields_for "system_settings[]", setting do |f| %>
-      <p><%= setting.human_readable %>
-      <%= f.text_field :value %>
-      </p>
-    <% end %>
+    <p><%= submit_tag "Save Settings", class: "btn btn-primary" %> </p>
+
   <% end %>
-  <p><%= submit_tag "Submit" %></p>
 
-<% console %>
+</div>
 
+<% if flash.notice %>
+  <div class="alert alert-success" role="alert"><%= flash.notice %></div>
 <% end %>

@@ -11,23 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529012300) do
+ActiveRecord::Schema.define(version: 20160531061558) do
 
   create_table "cms_pages", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
   end
 
+  add_index "cms_pages", ["slug"], name: "index_cms_pages_on_slug"
+
   create_table "system_settings", force: :cascade do |t|
+    t.string   "group_tag"
     t.string   "slug"
-    t.string   "key"
     t.string   "value"
     t.string   "human_readable"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  add_index "system_settings", ["slug"], name: "index_system_settings_on_slug", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

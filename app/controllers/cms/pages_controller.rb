@@ -1,5 +1,6 @@
 class Cms::PagesController < ApplicationController
   before_action :set_cms_page, only: [:show, :edit, :update, :destroy]
+  layout "backend", only: [:index, :edit, :update, :destroy]
 
   # GET /cms/pages
   # GET /cms/pages.json
@@ -64,11 +65,11 @@ class Cms::PagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cms_page
-      @cms_page = Cms::Page.find(params[:id])
+      @cms_page = Cms::Page.find_by_slug!(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cms_page_params
-      params.require(:cms_page).permit(:title, :content)
+      params.require(:cms_page).permit(:title, :content, :slug)
     end
 end
