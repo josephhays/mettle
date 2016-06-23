@@ -2,14 +2,13 @@ Rails.application.routes.draw do
 
   root to: "pages#index"
 
-  resources :pages, path: "", only: [:show]
+  resources :pages, path: "/",  only: [:show]
 
   scope '/admin' do
-    get '/settings', to: 'system_settings#edit', as: 'settings'
-    patch '/settings', to: 'system_settings#update', as: 'update_settings'
 
     namespace :cms do
-      resources :pages, except: [:show]
+      resources :shows, path: "/s/"
+      resources :pages, path: "/p/"
     end
 
   end
