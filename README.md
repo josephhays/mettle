@@ -1,28 +1,22 @@
-== README
+# Meddle | A Rails CMS for Radio, Webradio and Television
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### What is Meddle?
 
-Things you may want to cover:
+Meddle is a new CMS and soon to be full-featured ERP built in rails and tailored specifically for the digital broadcaster.
+Meddle is also an ongoing learning project for any youth developers in Canada who want to join in, and our work is documented, from every mistake to every success over on our page: meddle.tsimastudios.com.
 
-* Ruby version
+### Download and Installation
 
-* System dependencies
+Meddle is not specifically made for any server host and is built with the assumption that the user is familiar with installing Rails programs. Even if that isn't the case, most server hosts have step-by-step instructions on setting up a rails app.
 
-* Configuration
+Meddle is configured for Postgres and Unicorn in PRODUCTION (production refers to an end-users installation of a rails app) for the sake of DigitalOcean installation, but that is easily changed by editing the section
 
-* Database creation
+```ruby
+group :production do
+  gem 'pg'
+  gem 'unicorn'
+end
+```
+of the `Gemfile` and setting up the database in the `config/database.yml` file.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This README will be updated soon!
