@@ -3,7 +3,7 @@
 ### What is Meddle?
 
 Meddle is a new CMS and soon to be full-featured ERP built in rails and tailored specifically for the digital broadcaster.
-Meddle is also an ongoing learning project for any youth developers in Canada who want to join in, and our work is documented, from every mistake to every success over on our page: meddle.tsimastudios.com.
+It is also my own personal learning project and notes and discussion can be found at http://joseph.tsimastudios.com.
 
 ### Download and Installation
 
