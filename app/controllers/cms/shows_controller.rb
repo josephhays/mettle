@@ -1,4 +1,5 @@
 class Cms::ShowsController < ApplicationController
+  helper ApplicationHelper
   before_action :set_cms_show, only: [:show, :edit, :update, :destroy]
 
   # GET /cms/shows
@@ -28,8 +29,9 @@ class Cms::ShowsController < ApplicationController
 
     respond_to do |format|
       if @cms_show.save
-        format.html { redirect_to @cms_show, notice: 'Show was successfully created.' }
-        format.json { render :show, status: :created, location: @cms_show }
+        # TODO: if !@cms_show.airtime_show_id
+          format.html { redirect_to @cms_show, notice: 'Show was successfully created.' }
+          format.json { render :show, status: :created, location: @cms_show }
       else
         format.html { render :new }
         format.json { render json: @cms_show.errors, status: :unprocessable_entity }
@@ -69,6 +71,6 @@ class Cms::ShowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cms_show_params
-      params.fetch(:cms_show, {})
+        params.require(:cms_page).permit(:title, :description, :airtime_show_id)
     end
 end

@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
-  before_action :set_cms_page, only: [:show]
+  before_action :set_page, only: [:show]
 
   def index
+    @pages = Cms::Page.all
+    @shows = Cms::Show.all
   end
 
   def show
@@ -9,8 +11,8 @@ class PagesController < ApplicationController
 
   private
 
-  def set_cms_page
-    @cms_page = Cms::Page.find_by_slug!(params[:id])
+  def set_page
+    @page = Cms::Page.find_by_slug!(params[:id])
   end
 
 end

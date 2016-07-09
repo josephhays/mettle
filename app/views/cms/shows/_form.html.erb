@@ -1,4 +1,4 @@
-<%= form_for(@cms_show) do |f| %>
+<%= simple_form_for(@cms_show) do |f| %>
   <% if @cms_show.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cms_show.errors.count, "error") %> prohibited this cms_show from being saved:</h2>
@@ -12,6 +12,9 @@
   <% end %>
 
   <div class="actions">
+    <%= f.input :airtime_show_id, :collection => get_shows {|k,v| ['name','id']} %>
+
+    <%# f.input :location_id, collection: :get_shows, label_method: :name, value_method: :id, label: "Airtime ID", include_blank: false %>
     <%= f.submit %>
   </div>
 <% end %>

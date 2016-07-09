@@ -9,25 +9,33 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pg'
 
-# Bootstrap to keep things pretty
+### Gems for prettyiness. Rails apps should be treated like princessess
+# Bootstrap
 gem 'bootstrap-sass'
 gem 'bootstrap-material-design'
+# Simple forms gem for better forms and easy boostrap integration.
+gem 'simple_form'
 
 # TinyMCE for WYSIWYG editing
 gem 'tinymce-rails'
 
+# For environment variables
+gem 'figaro'
+
 group :production do
   gem 'unicorn'
-  gem 'pg'
 end
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'spring'
+  gem 'quiet_assets'
+  gem 'awesome_print', require: 'ap'
+  gem 'meta_request'
+  gem 'rails_db'
 end
