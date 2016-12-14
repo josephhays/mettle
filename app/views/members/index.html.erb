@@ -1,26 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Cms Members</h1>
+<h1>Listing Members</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @members.each do |m| %>
-      <tr>
-        <td><%= m.email %></td>
-        <td>Show disabled<%= link_to 'View', member_path %></td>
-        <td>Edit Disabled</td>
-        <td>Destroy Disabled</td>
-      </tr>
+        <span style="font-weight:bold"><%= m.id %></span> <%= m.email %> [ <%= link_to 'View', m %> | <%= link_to 'Edit', edit_member_path(m) %>
+           | <span style="color:grey">Destroy Disabled</span> ] <br />
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
-<%= link_to 'New Member', new_cms_member_path %>
+<%= link_to 'New Member', new_member_path %>
