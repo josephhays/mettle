@@ -1,5 +1,6 @@
 class Cms::ShowsController < ApplicationController
   helper ApplicationHelper
+  layout 'backend'
   before_action :set_cms_show, only: [:show, :edit, :update, :destroy]
 
   # GET /cms/shows
@@ -71,6 +72,6 @@ class Cms::ShowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cms_show_params
-        params.require(:cms_page).permit(:title, :description, :airtime_show_id)
+        params.require(:cms_page).permit(:title, :description)
     end
 end

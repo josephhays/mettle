@@ -12,8 +12,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.input :airtime_show_id, :collection => get_shows {|k,v| ['name','id']} %>
-
+    <%= f.input :title %>
     <%# f.input :location_id, collection: :get_shows, label_method: :name, value_method: :id, label: "Airtime ID", include_blank: false %>
     <%= f.submit %>
   </div>

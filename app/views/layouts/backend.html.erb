@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Meddle </title>
+  <title> <%= "MeddleCMS | #{ENV["STATION_NAME"]}" %> </title>
   <%= stylesheet_link_tag    'backend', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
     <div class="row">
       <div class="col-lg-2">
       </div>

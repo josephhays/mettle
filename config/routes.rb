@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
 
+  devise_for :members
   root to: "pages#index"
 
-  resources :pages, path: "/",  only: [:show]
+  resources :pages, path: "/p/",  only: [:show]
 
   scope '/admin' do
-
+    resources :members, controller: "members"
     namespace :cms do
-      resources :shows, path: "/s/"
       resources :pages, path: "/p/"
+      resources :shows, path: "/s/"
     end
-
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

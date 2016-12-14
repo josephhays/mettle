@@ -10,18 +10,23 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
+gem 'paperclip'
 
-### Gems for prettyiness. Rails apps should be treated like princessess
-# Bootstrap
+### Gems for prettyiness. Rails apps should be treated like princessess.
+# Bootstrap, because it's bootstrap.
 gem 'bootstrap-sass'
 gem 'bootstrap-material-design'
+
 # Simple forms gem for better forms and easy boostrap integration.
 gem 'simple_form'
 
-# TinyMCE for WYSIWYG editing
+# TinyMCE for WYSIWYG editing.
 gem 'tinymce-rails'
 
-# For environment variables
+# Devise for user authentication
+gem 'devise'
+
+# For environment variables, might change this...
 gem 'figaro'
 
 group :production do

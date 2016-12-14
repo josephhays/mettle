@@ -1,6 +1,6 @@
 class Cms::PagesController < ApplicationController
   layout "backend"
-  before_action :set_cms_page, except: [:index, :new]
+  before_action :set_cms_page, except: [:index, :new, :create]
 
   def index
     @cms_pages = Cms::Page.all
