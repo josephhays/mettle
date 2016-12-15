@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if member_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_member_session_path, :method => :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_member_session_path)  %>
+  </li>
+<% end %>
   <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
       <%= yield %>
+      <% console %>
 </body>
 </html>

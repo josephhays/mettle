@@ -2,14 +2,16 @@ class MembersController < ApplicationController
   layout 'backend'
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
-  # GET /cms/members
-  # GET /cms/members.json
+  ### Members, along with the CMS:: namespace are scoped under /admin.
+  ### I still have not decided whether this is a bad idea or not, if anyone has
+  ### a clue, please let me know!
+
+  # GET /admin/members
   def index
     @members = Member.all
   end
 
-  # GET /cms/members/1
-  # GET /cms/members/1.json
+  # GET /admin/members/'id'
   def show
   end
 
@@ -18,19 +20,23 @@ class MembersController < ApplicationController
     @member = Member.new
   end
 
-  # GET /cms/members/1/edit
+  # GET /cms/members/'id'/edit
   def edit
   end
 
-  # POST /cms/members
-  # POST /cms/members.json
+  # POST /admin/members
   def create
     @member = Member.new(member_params)
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
-        format.json { render :show, status: :created, location: @member }
+        @profile = Profile.new(member_id: @member.id)
+        if @profile.save
+          format.html { redirect_to @member, notice: 'Member and profile was successfully created.' }
+          format.json { render :show, status: :created, location: @member }
+        else
+          format.html { redirect_to @member, notice: 'Member was created but profile was not.' }
+        end
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -38,8 +44,7 @@ class MembersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cms/members/1
-  # PATCH/PUT /cms/members/1.json
+  # PATCH/PUT /cms/members/'id'
   def update
     respond_to do |format|
       if @member.update(member_params)
@@ -52,8 +57,7 @@ class MembersController < ApplicationController
     end
   end
 
-  # DELETE /cms/members/1
-  # DELETE /cms/members/1.json
+  # DELETE /cms/members/'id'
   def destroy
     @member.destroy
     respond_to do |format|
@@ -70,7 +74,7 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-        params.require(:member).permit(:id)
+        params.require(:member).permit(:id, :email, :password)
     end
 
 end

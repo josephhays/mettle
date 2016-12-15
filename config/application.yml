@@ -3,4 +3,10 @@ STATION_NAME: "Acme Broadcast Network"
 STATION_TAGLINE: "The best network online!"
 
 # Station Logo
-LOGO_URL: "http://mystation.com/media/logo.png"
+LOGO: "http://mystation.com/media/logo.png"
+
+# Default password for admin created users
+DEFAULT_PASSWORD: "password"
+
+# Specify your theme here
+THEME: "Default"

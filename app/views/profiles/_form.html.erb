@@ -1,8 +1,8 @@
-<%= simple_form_for(@member) do |f| %>
+<%= simple_form_for(@profile) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email %>
+    <%= f.association :member %>
   </div>
 
   <div class="form-actions">

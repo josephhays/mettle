@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+
+<% if (member_signed_in?) && (current_member.profile) %>
+  <p> Hey <%= current_member.email %>, your profile ID is <%= @profile.id %></p>
+<% elsif (member_signed_in?) && (!current_member.profile) %>
+  <p> You have no profile! Contact an admin to fix it...<p>
+    <!-- Note: To anyone who thinks this is a bad way of dealing with it, I know. I'm debugging. -->
+  <% else %>
+  <p> Hey! Log in! </p>
+  <% end %>
+
+<br>
